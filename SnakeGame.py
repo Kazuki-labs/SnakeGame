@@ -38,7 +38,7 @@ font = pygame.font.Font(None, 36)
 score = 0
 game_over = False  # Add a game over flag
 
-# Define the "Exit" button dimensions and coordinates
+# Exit button dimensions
 exit_button_rect = pygame.Rect(WIDTH - 100, 10, 90, 30)
 
 # Game loop
@@ -59,9 +59,9 @@ while running:
         elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
             # Check if the left mouse button is clicked
             if exit_button_rect.collidepoint(event.pos):
-                running = False  # Quit the game when the "Exit" button is clicked
+                running = False  # quit game when exit button pressed
 
-    if not game_over:  # Only update the game if it's not over
+    if not game_over:  # update if the game is not over
         # Move the snake
         new_head = (snake[0][0] + snake_direction[0], snake[0][1] + snake_direction[1])
         snake.insert(0, new_head)
@@ -80,7 +80,7 @@ while running:
             or snake[0][1] >= GRID_HEIGHT
             or snake[0] in snake[1:]
         ):
-            game_over = True  # Set the game over flag
+            game_over = True  # Set game over flag
 
     # Draw everything
     screen.fill(BLACK)
